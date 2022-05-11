@@ -1,13 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
+import 'package:pokemon_tcg_deck/feature/card/page/page_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const StoryBookPokemon());
+  runApp(
+    const MaterialApp(
+      home: MainPokemon(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MainPokemon extends StatelessWidget {
+  const MainPokemon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Charizard'),
+      ),
+      body: PageCard(
+          pokemon: Pokemon(
+            name: 'Charizard',
+            level: '50',
+            hp: '150',
+            evolvesFrom: "Blaine's Charmeleon",
+            subtypes: ["Stage 2"],
+            imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
+          ),
+          abilities: [
+            Abilitie(
+                name: 'Fury Blaze',
+                description:
+                    "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+                type: 'Poke-Body')
+          ],
+          atacks: [
+            Atack(
+                name: 'Blast Burn',
+                damage: '20+',
+                description:
+                    "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+                costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
+                convertedEnergyCost: 1),
+            Atack(
+                name: 'Fire Wing',
+                damage: '30',
+                description: "Discard a Fire Energy attached to Charizard.",
+                costList: ['Fire', 'Fire', 'Colorless'],
+                convertedEnergyCost: 2),
+          ],
+          weaknesses: [
+            Weakness(type: 'Fighting', value: '2x'),
+            Weakness(type: 'Water', value: '2x')
+          ]),
+    );
+  }
+}
+
+class StoryBookPokemon extends StatelessWidget {
+  const StoryBookPokemon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,31 +78,66 @@ class MyApp extends StatelessWidget {
           name: 'Pokemon Card',
           description: 'Describe details about pokemon card',
           builder: (context) => PokemonCard(
-            name: context.knobs.text(label: 'name', initial: 'Charizard'),
-            level: context.knobs.text(label: 'level', initial: '50'),
-            hp: context.knobs.text(label: 'hp', initial: '150'),
-            height: context.knobs.slider(
-              label: 'height',
-              description: 'height of card',
-              initial: 600,
-              min: 100,
-              max: 500,
+            pokemon: context.knobs.options(
+              label: 'pokemon',
+              initial: Pokemon(
+                name: 'Charizard',
+                level: '50',
+                hp: '150',
+                evolvesFrom: "Blaine's Charmeleon",
+                subtypes: ["Stage 2"],
+                imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
+              ),
             ),
-            width: context.knobs.slider(
-              label: 'width',
-              description: 'width of card',
-              initial: 347,
-              min: 100,
-              max: 500,
+          ),
+        ),
+        Story(
+          name: 'Card Atack',
+          builder: (context) => AtackCard(
+            atacks: context.knobs.options(
+              label: 'atack',
+              initial: [
+                Atack(
+                    name: 'Blast Burn',
+                    damage: '20+',
+                    description:
+                        "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+                    costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
+                    convertedEnergyCost: 1),
+                Atack(
+                    name: 'Fire Wing',
+                    damage: '30',
+                    description: "Discard a Fire Energy attached to Charizard.",
+                    costList: ['Fire', 'Fire', 'Colorless'],
+                    convertedEnergyCost: 2),
+              ],
             ),
-            imageCardUrl: context.knobs.text(
-              label: 'imageCardUrl',
-              initial: 'https://images.pokemontcg.io/gym2/2_hires.png',
+          ),
+        ),
+        Story(
+          name: 'Card Abilities',
+          builder: (context) => AbilitiesCard(
+            abilities: context.knobs.options(
+              label: 'abilities',
+              initial: [
+                Abilitie(
+                    name: 'Fury Blaze',
+                    description:
+                        "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+                    type: 'Poke-Body')
+              ],
             ),
-            imageLogoUrl: context.knobs.text(
-              label: 'imageLogoUrl',
-              initial:
-                  'https://www.seekpng.com/png/detail/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png',
+          ),
+        ),
+        Story(
+          name: 'Card weakness',
+          builder: (context) => WeaknessesCard(
+            weaknesses: context.knobs.options(
+              label: 'weakness',
+              initial: [
+                Weakness(type: 'Fighting', value: '2x'),
+                Weakness(type: 'Water', value: '2x')
+              ],
             ),
           ),
         ),
