@@ -8,15 +8,14 @@ import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
+import 'package:pokemon_tcg_deck/feature/home/page/page_home.dart';
+import 'package:pokemon_tcg_deck/feature/home/widgets/menu_item.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 void main() {
   // runApp(const StoryBookPokemon());
-  runApp(
-    const MaterialApp(
-      home: MainPokemon(),
-    ),
-  );
+  // runApp(const MaterialApp(home: MainPokemon()));
+  runApp(const MaterialApp(home: PageHome()));
 }
 
 class MainPokemon extends StatelessWidget {
@@ -74,6 +73,24 @@ class StoryBookPokemon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Storybook(
       stories: [
+        Story(
+          name: 'Menu Item',
+          builder: (context) => MenuItem(
+            onClick: () => {},
+            title: context.knobs.text(
+              label: 'text',
+              description: 'title menu item',
+              initial: 'Search Pokémon Card',
+            ),            
+            height: context.knobs.slider(
+              label: 'height',
+              initial: 200,              
+              max: 500,
+              min: 50,
+              description: 'Height from menu item'
+            ),
+          ),
+        ),
         Story(
           name: 'Pokemon Card',
           description: 'Describe details about pokemon card',

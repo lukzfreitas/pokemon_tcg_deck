@@ -31,7 +31,8 @@ class AtackCard extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(atack.name),
-                      for (String cost in atack.costList) Energy.factoryIconEnergy(cost),                        
+                      for (String cost in atack.costList)
+                        Energy.factoryIconEnergy(cost),
                     ],
                   ),
                 ),
@@ -55,7 +56,7 @@ class AtackCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),                
+                ),
               ],
             ),
           ),
