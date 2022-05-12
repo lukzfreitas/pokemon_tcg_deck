@@ -17,11 +17,12 @@ class PageHome extends StatelessWidget {
           child: Column(
             children: [
               MenuItem(
-                onClick: () => {},
+                onClick: () => Navigator.pushNamed(context, '/search-card'),
                 title: 'Find Pokémon Card',
                 height: 100,
               ),
               MenuItem(
+                // ignore: avoid_print
                 onClick: () => {},
                 title: 'Register Pokémon Card',
                 height: 100,

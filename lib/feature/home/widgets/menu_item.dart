@@ -18,7 +18,7 @@ class MenuItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () => onClick,      
+        onTap: () => onClick(),
         child: Container(
           height: height,
           width: MediaQuery.of(context).size.width,

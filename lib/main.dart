@@ -4,6 +4,7 @@ import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
 import 'package:pokemon_tcg_deck/feature/card/page/page_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/page/page_search_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
@@ -15,7 +16,13 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 void main() {
   // runApp(const StoryBookPokemon());
   // runApp(const MaterialApp(home: MainPokemon()));
-  runApp(const MaterialApp(home: PageHome()));
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const PageHome(),
+      '/search-card': (context) => const PageSearchCard()
+    },
+  ));
 }
 
 class MainPokemon extends StatelessWidget {
