@@ -11,18 +11,19 @@ import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
 import 'package:pokemon_tcg_deck/feature/home/page/page_home.dart';
 import 'package:pokemon_tcg_deck/feature/home/widgets/menu_item.dart';
+import 'package:pokemon_tcg_deck/shared/widget/search_bar.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 void main() {
-  // runApp(const StoryBookPokemon());
+  runApp(const StoryBookPokemon());
   // runApp(const MaterialApp(home: MainPokemon()));
-  runApp(MaterialApp(
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const PageHome(),
-      '/search-card': (context) => const PageSearchCard()
-    },
-  ));
+  // runApp(MaterialApp(
+  //   initialRoute: '/',
+  //   routes: {
+  //     '/': (context) => const PageHome(),
+  //     '/search-card': (context) => const PageSearchCard()
+  //   },
+  // ));
 }
 
 class MainPokemon extends StatelessWidget {
@@ -35,40 +36,41 @@ class MainPokemon extends StatelessWidget {
         title: const Text('Charizard'),
       ),
       body: PageCard(
-          pokemon: Pokemon(
-            name: 'Charizard',
-            level: '50',
-            hp: '150',
-            evolvesFrom: "Blaine's Charmeleon",
-            subtypes: ["Stage 2"],
-            imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
-          ),
-          abilities: [
-            Abilitie(
-                name: 'Fury Blaze',
-                description:
-                    "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-                type: 'Poke-Body')
-          ],
-          atacks: [
-            Atack(
-                name: 'Blast Burn',
-                damage: '20+',
-                description:
-                    "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-                costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
-                convertedEnergyCost: 1),
-            Atack(
-                name: 'Fire Wing',
-                damage: '30',
-                description: "Discard a Fire Energy attached to Charizard.",
-                costList: ['Fire', 'Fire', 'Colorless'],
-                convertedEnergyCost: 2),
-          ],
-          weaknesses: [
-            Weakness(type: 'Fighting', value: '2x'),
-            Weakness(type: 'Water', value: '2x')
-          ]),
+        pokemon: Pokemon(
+          name: 'Charizard',
+          level: '50',
+          hp: '150',
+          evolvesFrom: "Blaine's Charmeleon",
+          subtypes: ["Stage 2"],
+          imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
+        ),
+        abilities: [
+          Abilitie(
+              name: 'Fury Blaze',
+              description:
+                  "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+              type: 'Poke-Body')
+        ],
+        atacks: [
+          Atack(
+              name: 'Blast Burn',
+              damage: '20+',
+              description:
+                  "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+              costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
+              convertedEnergyCost: 1),
+          Atack(
+              name: 'Fire Wing',
+              damage: '30',
+              description: "Discard a Fire Energy attached to Charizard.",
+              costList: ['Fire', 'Fire', 'Colorless'],
+              convertedEnergyCost: 2),
+        ],
+        weaknesses: [
+          Weakness(type: 'Fighting', value: '2x'),
+          Weakness(type: 'Water', value: '2x')
+        ],
+      ),
     );
   }
 }
@@ -81,6 +83,17 @@ class StoryBookPokemon extends StatelessWidget {
     return Storybook(
       stories: [
         Story(
+          name: 'Search Bar',
+          builder: (context) => SearchBar(
+            hintText: context.knobs.text(
+              label: 'hintText',
+              initial: 'Search Pokémon Card',
+            ),
+            onSearch: () => {},
+            onClear: () => {},
+          ),
+        ),
+        Story(
           name: 'Menu Item',
           builder: (context) => MenuItem(
             onClick: () => {},
@@ -88,14 +101,13 @@ class StoryBookPokemon extends StatelessWidget {
               label: 'text',
               description: 'title menu item',
               initial: 'Search Pokémon Card',
-            ),            
-            height: context.knobs.slider(
-              label: 'height',
-              initial: 200,              
-              max: 500,
-              min: 50,
-              description: 'Height from menu item'
             ),
+            height: context.knobs.slider(
+                label: 'height',
+                initial: 200,
+                max: 500,
+                min: 50,
+                description: 'Height from menu item'),
           ),
         ),
         Story(
