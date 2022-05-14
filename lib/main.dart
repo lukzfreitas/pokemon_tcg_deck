@@ -8,6 +8,7 @@ import 'package:pokemon_tcg_deck/feature/card/page/page_search_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_item.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
 import 'package:pokemon_tcg_deck/feature/home/page/page_home.dart';
 import 'package:pokemon_tcg_deck/feature/home/widgets/menu_item.dart';
@@ -91,6 +92,20 @@ class StoryBookPokemon extends StatelessWidget {
             ),
             onSearch: () => {},
             onClear: () => {},
+            controller: TextEditingController(),
+          ),
+        ),
+        Story(
+          name: 'Pokemon item',
+          builder: (context) => PokemonItem(
+            title: context.knobs.text(label: 'title', initial: 'Charizard'),
+            subtitle: context.knobs.text(label: 'subtitle', initial: "Blaine's Charmeleon"),
+            leading: context.knobs.text(label: 'leading', initial: 'HP 150'),
+            imageUrl: context.knobs.text(
+              label: 'imageUrl',
+              initial: 'https://images.pokemontcg.io/dp3/3_hires.png',
+            ),
+            onClick: () => {},
           ),
         ),
         Story(
@@ -134,18 +149,20 @@ class StoryBookPokemon extends StatelessWidget {
               label: 'atack',
               initial: [
                 Atack(
-                    name: 'Blast Burn',
-                    damage: '20+',
-                    description:
-                        "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-                    costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
-                    convertedEnergyCost: 1),
+                  name: 'Blast Burn',
+                  damage: '20+',
+                  description:
+                      "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
+                  costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
+                  convertedEnergyCost: 1,
+                ),
                 Atack(
-                    name: 'Fire Wing',
-                    damage: '30',
-                    description: "Discard a Fire Energy attached to Charizard.",
-                    costList: ['Fire', 'Fire', 'Colorless'],
-                    convertedEnergyCost: 2),
+                  name: 'Fire Wing',
+                  damage: '30',
+                  description: "Discard a Fire Energy attached to Charizard.",
+                  costList: ['Fire', 'Fire', 'Colorless'],
+                  convertedEnergyCost: 2,
+                ),
               ],
             ),
           ),
