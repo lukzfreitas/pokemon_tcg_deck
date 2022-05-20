@@ -36,8 +36,8 @@ class Pokemon {
       level: map['level'] ?? '',
       hp: map['hp'] ?? '',
       evolvesFrom: map['evolvesFrom'] ?? '',
-      types: List<dynamic>.from(map['types']),
-      images: PokemonImage.fromMap(map['images']),
+      types: List<dynamic>.from(map['types'] ?? []),
+      images: PokemonImage.fromMap(map['images'] ?? []),
     );
   }
 

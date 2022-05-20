@@ -37,7 +37,8 @@ class PageSearchCard extends StatelessWidget {
             case ConnectionState.done:
               if (snapshot.hasData) {
                 final List<Pokemon>? pokemons = snapshot.data?.data;
-                return ListView.builder(                  
+                return ListView.builder(   
+                  itemCount: snapshot.data?.totalCount,               
                   itemBuilder: (context, index) {
                     final Pokemon pokemon = pokemons![index];
                     return PokemonItem(
@@ -50,10 +51,10 @@ class PageSearchCard extends StatelessWidget {
                   },
                 );
               } else {
-                return const Text('not found cards');
+                return const Progress();
               }
           }
-          return const Text('not found cards');
+          return const Progress();
         },
       ),
     );

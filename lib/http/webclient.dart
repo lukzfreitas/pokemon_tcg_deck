@@ -8,4 +8,4 @@ final Client client = InterceptedClient.build(
 );
 
 const String baseUrl = "api.pokemontcg.io";
-const String apiKey = "X-Api-Key=7b4f3e40-0915-4447-ba39-430e8d5f263d";
+const String apiKey = "7b4f3e40-0915-4447-ba39-430e8d5f263d";
