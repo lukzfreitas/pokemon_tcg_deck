@@ -17,25 +17,30 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
       child: TextField(
         controller: controller,
         textAlignVertical: TextAlignVertical.center,
+        cursorWidth: 0,
+        style: const TextStyle(color: Colors.white),        
         decoration: InputDecoration(
-          filled: true,
-          hintText: hintText,
-          prefixIcon: IconButton(
-              icon: const Icon(Icons.search), onPressed: () => onSearch),
-          suffixIcon: IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              controller.clear();
-              onClear;
-            },
-          ),
-          border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(2.0))),
-        ),
+            iconColor: Colors.white,
+            filled: true,
+            hintText: hintText,
+            hintStyle: const TextStyle(color: Colors.white),
+            prefixIcon: IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () => onSearch,
+              color: Colors.white,
+            ),
+            suffixIcon: IconButton(
+              icon: const Icon(Icons.close),
+              color: Colors.white,
+              onPressed: () {
+                controller.clear();
+                onClear;
+              },
+            ),
+            border: InputBorder.none),
       ),
     );
   }

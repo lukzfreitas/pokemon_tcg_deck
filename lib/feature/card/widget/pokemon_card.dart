@@ -28,7 +28,7 @@ class PokemonCard extends StatelessWidget {
   Widget image(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      child: Image.network(pokemon.imageCardUrl),
+      child: Image.network(pokemon.images.large),
     );
   }
 }

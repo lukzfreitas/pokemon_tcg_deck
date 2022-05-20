@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
 import 'package:pokemon_tcg_deck/feature/card/page/page_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/page/page_search_card.dart';
@@ -16,15 +17,15 @@ import 'package:pokemon_tcg_deck/shared/widget/search_bar.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 void main() {
-  runApp(const StoryBookPokemon());
+  // runApp(const StoryBookPokemon());
   // runApp(const MaterialApp(home: MainPokemon()));
-  // runApp(MaterialApp(
-  //   initialRoute: '/',
-  //   routes: {
-  //     '/': (context) => const PageHome(),
-  //     '/search-card': (context) => const PageSearchCard()
-  //   },
-  // ));
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const PageHome(),
+      '/search-card': (context) => PageSearchCard(),
+    },
+  ));
 }
 
 class MainPokemon extends StatelessWidget {
@@ -42,8 +43,11 @@ class MainPokemon extends StatelessWidget {
           level: '50',
           hp: '150',
           evolvesFrom: "Blaine's Charmeleon",
-          subtypes: ["Stage 2"],
-          imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
+          types: ["Stage 2"],
+          images: PokemonImage(
+            small: 'https://images.pokemontcg.io/dp3/3_hires.png',
+            large: 'https://images.pokemontcg.io/dp3/3_hires.png',
+          ),
         ),
         abilities: [
           Abilitie(
@@ -99,7 +103,8 @@ class StoryBookPokemon extends StatelessWidget {
           name: 'Pokemon item',
           builder: (context) => PokemonItem(
             title: context.knobs.text(label: 'title', initial: 'Charizard'),
-            subtitle: context.knobs.text(label: 'subtitle', initial: "Blaine's Charmeleon"),
+            subtitle: context.knobs
+                .text(label: 'subtitle', initial: "Blaine's Charmeleon"),
             leading: context.knobs.text(label: 'leading', initial: 'HP 150'),
             imageUrl: context.knobs.text(
               label: 'imageUrl',
@@ -136,8 +141,11 @@ class StoryBookPokemon extends StatelessWidget {
                 level: '50',
                 hp: '150',
                 evolvesFrom: "Blaine's Charmeleon",
-                subtypes: ["Stage 2"],
-                imageCardUrl: 'https://images.pokemontcg.io/dp3/3_hires.png',
+                types: ["Stage 2"],
+                images: PokemonImage(
+                  small: 'https://images.pokemontcg.io/dp3/3_hires.png',
+                  large: 'https://images.pokemontcg.io/dp3/3_hires.png',
+                ),
               ),
             ),
           ),
