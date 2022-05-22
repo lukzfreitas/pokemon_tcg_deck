@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_tcg_deck/feature/card/bloc/bloc_provider_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
 import 'package:pokemon_tcg_deck/feature/card/page/page_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/page/page_search_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
@@ -23,7 +23,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => const PageHome(),
-      '/search-card': (context) => PageSearchCard(),
+      '/search-card': (context) => const BlocProviderCard(),
     },
   ));
 }
@@ -39,6 +39,7 @@ class MainPokemon extends StatelessWidget {
       ),
       body: PageCard(
         pokemon: Pokemon(
+          id: 'Charizard',
           name: 'Charizard',
           level: '50',
           hp: '150',
@@ -96,7 +97,7 @@ class StoryBookPokemon extends StatelessWidget {
             ),
             onSearch: () => {},
             onClear: () => {},
-            controller: TextEditingController(),
+            // controller: TextEditingController(),
           ),
         ),
         Story(
@@ -137,6 +138,7 @@ class StoryBookPokemon extends StatelessWidget {
             pokemon: context.knobs.options(
               label: 'pokemon',
               initial: Pokemon(
+                id: 'Charizard',
                 name: 'Charizard',
                 level: '50',
                 hp: '150',

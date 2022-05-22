@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
 
 class Pokemon {
+  final String id;
   final String name;
   final String level;
   final String hp;
@@ -11,6 +12,7 @@ class Pokemon {
   final PokemonImage images;
   
   Pokemon({
+    required this.id,
     required this.name,
     required this.level,
     required this.hp,
@@ -21,6 +23,7 @@ class Pokemon {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'level': level,
       'hp': hp,
@@ -32,6 +35,7 @@ class Pokemon {
 
   factory Pokemon.fromMap(Map<String, dynamic> map) {
     return Pokemon(
+      id: map['id'] ?? '',
       name: map['name'] ?? '',
       level: map['level'] ?? '',
       hp: map['hp'] ?? '',
