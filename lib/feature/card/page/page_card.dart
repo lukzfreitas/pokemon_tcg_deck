@@ -1,26 +1,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
+
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/attack_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
 
 class PageCard extends StatelessWidget {
   final Pokemon pokemon;
-  final List<Abilitie> abilities;
-  final List<Atack> atacks;
-  final List<Weakness> weaknesses;
 
   const PageCard({
     Key? key,
-    required this.pokemon,
-    required this.abilities,
-    required this.atacks,
-    required this.weaknesses,
+    required this.pokemon,    
   }) : super(key: key);
 
   @override
@@ -34,9 +28,9 @@ class PageCard extends StatelessWidget {
             PokemonCard(
               pokemon: pokemon,
             ),
-            AbilitiesCard(abilities: abilities),
-            AtackCard(atacks: atacks),
-            WeaknessesCard(weaknesses: weaknesses),
+            AbilitiesCard(abilities: pokemon.abilities),
+            AtackCard(atacks: pokemon.attacks),
+            WeaknessesCard(weaknesses: pokemon.weakness),
           ],
         ),
       ),

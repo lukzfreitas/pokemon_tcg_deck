@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_tcg_deck/feature/card/bloc/bloc_provider_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
-import 'package:pokemon_tcg_deck/feature/card/page/page_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/type_value.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/atack_card.dart';
+import 'package:pokemon_tcg_deck/feature/card/widget/attack_card.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_item.dart';
 import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
 import 'package:pokemon_tcg_deck/feature/home/page/page_home.dart';
@@ -28,58 +24,7 @@ void main() {
   ));
 }
 
-class MainPokemon extends StatelessWidget {
-  const MainPokemon({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Charizard'),
-      ),
-      body: PageCard(
-        pokemon: Pokemon(
-          id: 'Charizard',
-          name: 'Charizard',
-          level: '50',
-          hp: '150',
-          evolvesFrom: "Blaine's Charmeleon",
-          types: ["Stage 2"],
-          images: PokemonImage(
-            small: 'https://images.pokemontcg.io/dp3/3_hires.png',
-            large: 'https://images.pokemontcg.io/dp3/3_hires.png',
-          ),
-        ),
-        abilities: [
-          Abilitie(
-              name: 'Fury Blaze',
-              description:
-                  "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-              type: 'Poke-Body')
-        ],
-        atacks: [
-          Atack(
-              name: 'Blast Burn',
-              damage: '20+',
-              description:
-                  "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-              costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
-              convertedEnergyCost: 1),
-          Atack(
-              name: 'Fire Wing',
-              damage: '30',
-              description: "Discard a Fire Energy attached to Charizard.",
-              costList: ['Fire', 'Fire', 'Colorless'],
-              convertedEnergyCost: 2),
-        ],
-        weaknesses: [
-          Weakness(type: 'Fighting', value: '2x'),
-          Weakness(type: 'Water', value: '2x')
-        ],
-      ),
-    );
-  }
-}
 
 class StoryBookPokemon extends StatelessWidget {
   const StoryBookPokemon({Key? key}) : super(key: key);
@@ -130,47 +75,26 @@ class StoryBookPokemon extends StatelessWidget {
                 min: 50,
                 description: 'Height from menu item'),
           ),
-        ),
-        Story(
-          name: 'Pokemon Card',
-          description: 'Describe details about pokemon card',
-          builder: (context) => PokemonCard(
-            pokemon: context.knobs.options(
-              label: 'pokemon',
-              initial: Pokemon(
-                id: 'Charizard',
-                name: 'Charizard',
-                level: '50',
-                hp: '150',
-                evolvesFrom: "Blaine's Charmeleon",
-                types: ["Stage 2"],
-                images: PokemonImage(
-                  small: 'https://images.pokemontcg.io/dp3/3_hires.png',
-                  large: 'https://images.pokemontcg.io/dp3/3_hires.png',
-                ),
-              ),
-            ),
-          ),
-        ),
+        ),        
         Story(
           name: 'Card Atack',
           builder: (context) => AtackCard(
             atacks: context.knobs.options(
               label: 'atack',
               initial: [
-                Atack(
+                Attack(
                   name: 'Blast Burn',
                   damage: '20+',
-                  description:
+                  text:
                       "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
-                  costList: ['Fire', 'Fire', 'Fire', 'Colorless'],
+                  cost: ['Fire', 'Fire', 'Fire', 'Colorless'],
                   convertedEnergyCost: 1,
                 ),
-                Atack(
+                Attack(
                   name: 'Fire Wing',
                   damage: '30',
-                  description: "Discard a Fire Energy attached to Charizard.",
-                  costList: ['Fire', 'Fire', 'Colorless'],
+                  text: "Discard a Fire Energy attached to Charizard.",
+                  cost: ['Fire', 'Fire', 'Colorless'],
                   convertedEnergyCost: 2,
                 ),
               ],
@@ -185,7 +109,7 @@ class StoryBookPokemon extends StatelessWidget {
               initial: [
                 Abilitie(
                     name: 'Fury Blaze',
-                    description:
+                    text:
                         "Flip a coin. If heads, discard 2 Energy cards attached to Charizard. If tails, discard 4 Energy cards attached to Charizard. (If you can't, this attack does nothing.)",
                     type: 'Poke-Body')
               ],
@@ -198,8 +122,8 @@ class StoryBookPokemon extends StatelessWidget {
             weaknesses: context.knobs.options(
               label: 'weakness',
               initial: [
-                Weakness(type: 'Fighting', value: '2x'),
-                Weakness(type: 'Water', value: '2x')
+                TypeValue(type: 'Fighting', value: '2x'),
+                TypeValue(type: 'Water', value: '2x')
               ],
             ),
           ),

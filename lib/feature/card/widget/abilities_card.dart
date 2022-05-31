@@ -35,7 +35,7 @@ class AbilitiesCard extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          abilitie.description,
+                          abilitie.text,
                           textAlign: TextAlign.justify,
                         ),
                       ),

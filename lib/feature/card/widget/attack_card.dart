@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/atack.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
 import 'package:pokemon_tcg_deck/feature/card/model/energy.dart';
 import 'package:pokemon_tcg_deck/shared/widget/box_decoration.dart';
 
 class AtackCard extends StatelessWidget {
-  final List<Atack> atacks;
+  final List<Attack> atacks;
 
   const AtackCard({
     Key? key,
@@ -23,15 +23,15 @@ class AtackCard extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
         children: List.from(
           atacks.map(
-            (Atack atack) => Column(
+            (Attack attack) => Column(
               children: [
                 const Divider(height: 2),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     children: [
-                      Text(atack.name),
-                      for (String cost in atack.costList)
+                      Text(attack.name),
+                      for (String cost in attack.cost)
                         Energy.factoryIconEnergy(cost),
                     ],
                   ),
@@ -40,7 +40,7 @@ class AtackCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     children: [
-                      Text('Damage ${atack.damage}'),
+                      Text('Damage ${attack.damage}'),
                     ],
                   ),
                 ),
@@ -50,7 +50,7 @@ class AtackCard extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          atack.description,
+                          attack.text,
                           textAlign: TextAlign.justify,
                         ),
                       ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/weakness.dart';
+import 'package:pokemon_tcg_deck/feature/card/model/type_value.dart';
 import 'package:pokemon_tcg_deck/shared/widget/box_decoration.dart';
 
 class WeaknessesCard extends StatelessWidget {
-  final List<Weakness> weaknesses;
+  final List<TypeValue> weaknesses;
 
   const WeaknessesCard({Key? key, required this.weaknesses}) : super(key: key);
 
@@ -20,7 +20,7 @@ class WeaknessesCard extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
         children: List.from(
           weaknesses.map(
-            (Weakness weakness) => Column(
+            (TypeValue weakness) => Column(
               children: [
                 const Divider(height: 2),
                 Container(

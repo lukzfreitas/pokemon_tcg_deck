@@ -9,7 +9,7 @@ class BlocProviderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SearchCubit('Charizard'),
+      create: (_) => SearchCubit(''),
       child: PageSearchCard(),
     );
   }
