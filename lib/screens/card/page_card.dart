@@ -1,13 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
-
-import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/attack_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon.dart';
+import 'package:pokemon_tcg_deck/widgets/card/abilities_card.dart';
+import 'package:pokemon_tcg_deck/widgets/card/attack_card.dart';
+import 'package:pokemon_tcg_deck/widgets/card/pokemon_card.dart';
+import 'package:pokemon_tcg_deck/widgets/card/weaknesses_card.dart';
 
 class PageCard extends StatelessWidget {
   final Pokemon pokemon;

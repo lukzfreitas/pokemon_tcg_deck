@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon.dart';
 
 class ResponsePokemon {
   final List<Pokemon> data;

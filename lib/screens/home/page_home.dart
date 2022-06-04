@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/home/widgets/menu_item.dart';
+import 'package:pokemon_tcg_deck/widgets/home/menu_item.dart';
 
 class PageHome extends StatelessWidget {
   const PageHome({Key? key}) : super(key: key);

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/shared/widget/box_decoration.dart';
+import 'package:pokemon_tcg_deck/models/card/attack.dart';
+import 'package:pokemon_tcg_deck/models/card/energy.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/box_decoration.dart';
 
-class AbilitiesCard extends StatelessWidget {
-  final List<Abilitie> abilities;
+class AtackCard extends StatelessWidget {
+  final List<Attack> atacks;
 
-  const AbilitiesCard({Key? key, required this.abilities}) : super(key: key);
+  const AtackCard({
+    Key? key,
+    required this.atacks,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +18,29 @@ class AbilitiesCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       decoration: boxDecoration(),
       child: ExpansionTile(
-        title: const Text('Abilities'),
+        title: const Text('Atacks'),
         childrenPadding:
             const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
         children: List.from(
-          abilities.map(
-            (Abilitie abilitie) => Column(
+          atacks.map(
+            (Attack attack) => Column(
               children: [
+                const Divider(height: 2),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     children: [
-                      Text(abilitie.name),
+                      Text(attack.name),
+                      for (String cost in attack.cost)
+                        Energy.factoryIconEnergy(cost),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    children: [
+                      Text('Damage ${attack.damage}'),
                     ],
                   ),
                 ),
@@ -35,18 +50,10 @@ class AbilitiesCard extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          abilitie.text,
+                          attack.text,
                           textAlign: TextAlign.justify,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    children: [
-                      Text(abilitie.type),
                     ],
                   ),
                 ),

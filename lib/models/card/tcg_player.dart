@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:pokemon_tcg_deck/feature/card/model/price.dart';
+import 'package:pokemon_tcg_deck/models/card/price.dart';
 
 class TCGPlayer {
   final String url;

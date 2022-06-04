@@ -1,13 +1,12 @@
 import 'dart:convert';
 
-import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/card_market.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/price.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/set_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/tcg_player.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/type_value.dart';
+import 'package:pokemon_tcg_deck/models/card/abilitie.dart';
+import 'package:pokemon_tcg_deck/models/card/attack.dart';
+import 'package:pokemon_tcg_deck/models/card/card_market.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon_image.dart';
+import 'package:pokemon_tcg_deck/models/card/set_card.dart';
+import 'package:pokemon_tcg_deck/models/card/tcg_player.dart';
+import 'package:pokemon_tcg_deck/models/card/type_value.dart';
 
 class Pokemon {
   final String id;

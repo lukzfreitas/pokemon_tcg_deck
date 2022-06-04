@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/bloc/bloc_provider_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/abilitie.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/attack.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/type_value.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/abilities_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/attack_card.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_item.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/weaknesses_card.dart';
-import 'package:pokemon_tcg_deck/feature/home/page/page_home.dart';
-import 'package:pokemon_tcg_deck/feature/home/widgets/menu_item.dart';
-import 'package:pokemon_tcg_deck/shared/widget/search_bar.dart';
+import 'package:pokemon_tcg_deck/controllers/card/bloc_provider_card.dart';
+import 'package:pokemon_tcg_deck/models/card/abilitie.dart';
+import 'package:pokemon_tcg_deck/models/card/attack.dart';
+import 'package:pokemon_tcg_deck/models/card/type_value.dart';
+import 'package:pokemon_tcg_deck/screens/home/page_home.dart';
+import 'package:pokemon_tcg_deck/widgets/card/abilities_card.dart';
+import 'package:pokemon_tcg_deck/widgets/card/attack_card.dart';
+import 'package:pokemon_tcg_deck/widgets/card/pokemon_item.dart';
+import 'package:pokemon_tcg_deck/widgets/card/weaknesses_card.dart';
+import 'package:pokemon_tcg_deck/widgets/home/menu_item.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/search_bar.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 void main() {

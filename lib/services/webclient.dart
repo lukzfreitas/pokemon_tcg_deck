@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
 import 'package:http_interceptor/http_interceptor.dart';
-import 'package:pokemon_tcg_deck/http/interceptors/logging_interceptors.dart';
+import 'package:pokemon_tcg_deck/services/interceptors/logging_interceptors.dart';
 
 final Client client = InterceptedClient.build(
   interceptors: [LoggingInterceptor()],

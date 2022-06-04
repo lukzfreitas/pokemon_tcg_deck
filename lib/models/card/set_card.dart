@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon_image.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon_image.dart';
 
 class SetCard {
   final String id;

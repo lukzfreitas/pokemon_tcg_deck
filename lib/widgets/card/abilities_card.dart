@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/type_value.dart';
-import 'package:pokemon_tcg_deck/shared/widget/box_decoration.dart';
+import 'package:pokemon_tcg_deck/models/card/abilitie.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/box_decoration.dart';
 
-class WeaknessesCard extends StatelessWidget {
-  final List<TypeValue> weaknesses;
+class AbilitiesCard extends StatelessWidget {
+  final List<Abilitie> abilities;
 
-  const WeaknessesCard({Key? key, required this.weaknesses}) : super(key: key);
+  const AbilitiesCard({Key? key, required this.abilities}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,28 +14,39 @@ class WeaknessesCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       decoration: boxDecoration(),
       child: ExpansionTile(
-        maintainState: true,
-        title: const Text('Weaknesses'),
+        title: const Text('Abilities'),
         childrenPadding:
             const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
         children: List.from(
-          weaknesses.map(
-            (TypeValue weakness) => Column(
+          abilities.map(
+            (Abilitie abilitie) => Column(
               children: [
-                const Divider(height: 2),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     children: [
-                      Text(weakness.type),
+                      Text(abilitie.name),
                     ],
                   ),
-                ),                
+                ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     children: [
-                      Text(weakness.value),
+                      Flexible(
+                        child: Text(
+                          abilitie.text,
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    children: [
+                      Text(abilitie.type),
                     ],
                   ),
                 ),

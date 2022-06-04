@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
-import 'package:pokemon_tcg_deck/http/response_pokemon.dart';
-import 'package:pokemon_tcg_deck/http/webclient.dart';
+import 'package:pokemon_tcg_deck/services/response_pokemon.dart';
+import 'package:pokemon_tcg_deck/services/webclient.dart';
 
 class CardWebClient {
   final url = "/v2/cards";  

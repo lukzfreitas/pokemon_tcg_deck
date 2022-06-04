@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
-import 'package:pokemon_tcg_deck/shared/widget/box_decoration.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/box_decoration.dart';
 
 class PokemonCard extends StatelessWidget {
   final Pokemon pokemon;

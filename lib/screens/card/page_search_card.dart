@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon_tcg_deck/feature/card/bloc/search_cubit.dart';
-import 'package:pokemon_tcg_deck/feature/card/model/pokemon.dart';
-import 'package:pokemon_tcg_deck/feature/card/widget/pokemon_item.dart';
-import 'package:pokemon_tcg_deck/http/response_pokemon.dart';
-
-import 'package:pokemon_tcg_deck/http/webclients/card_webclient.dart';
-import 'package:pokemon_tcg_deck/shared/widget/not_found.dart';
-import 'package:pokemon_tcg_deck/shared/widget/progress.dart';
-import 'package:pokemon_tcg_deck/shared/widget/search_bar.dart';
+import 'package:pokemon_tcg_deck/controllers/card/search_cubit.dart';
+import 'package:pokemon_tcg_deck/models/card/pokemon.dart';
+import 'package:pokemon_tcg_deck/services/response_pokemon.dart';
+import 'package:pokemon_tcg_deck/services/webclients/card_webclient.dart';
+import 'package:pokemon_tcg_deck/widgets/card/pokemon_item.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/not_found.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/progress.dart';
+import 'package:pokemon_tcg_deck/widgets/shared/search_bar.dart';
 
 class PageSearchCard extends StatelessWidget {
   PageSearchCard({Key? key}) : super(key: key);
