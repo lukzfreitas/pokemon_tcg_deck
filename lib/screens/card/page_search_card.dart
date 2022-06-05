@@ -52,7 +52,7 @@ class PageSearchCard extends StatelessWidget {
                         subtitle: '',
                         imageUrl: pokemon.images.large,
                         leading: pokemon.hp,
-                        onClick: () => {},
+                        onClick: () => _webClient.create(pokemon),
                       );
                     },
                   );

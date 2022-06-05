@@ -31,7 +31,7 @@ class PokemonItem extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             child: InkWell(
-              onTap: () => onClick,
+              onTap: () => onClick(),
               child: Image.network(imageUrl),
             ),
           )

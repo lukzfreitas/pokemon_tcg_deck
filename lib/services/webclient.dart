@@ -7,5 +7,6 @@ final Client client = InterceptedClient.build(
   requestTimeout: const Duration(seconds: 10)
 );
 
-const String baseUrl = "api.pokemontcg.io";
+const String baseUrlTCGAPI = "api.pokemontcg.io";
+const String baseUrlServer = "10.0.2.2:3000";
 const String apiKey = "7b4f3e40-0915-4447-ba39-430e8d5f263d";
