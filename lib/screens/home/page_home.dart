@@ -16,33 +16,33 @@ class PageHome extends StatelessWidget {
           ),
           child: Column(
             children: [
-              MenuItem(
+              MenuItemTCG(
                 onClick: () => Navigator.pushNamed(context, '/search-card'),
-                title: 'Find Pokémon Card',
+                title: "Find Pokémon Card",
                 height: 100,
               ),
-              MenuItem(
+              MenuItemTCG(
                 // ignore: avoid_print
                 onClick: () => {},
                 title: 'Register Pokémon Card',
                 height: 100,
               ),
-              MenuItem(
+              MenuItemTCG(
                 onClick: () => {},
                 title: 'Register PokeDek',
                 height: 100,
               ),
-              MenuItem(
+              MenuItemTCG(
                 onClick: () => {},
                 title: 'Find Pokémon Card',
                 height: 100,
               ),
-              MenuItem(
+              MenuItemTCG(
                 onClick: () => {},
                 title: 'Register Pokémon Card',
                 height: 100,
               ),
-              MenuItem(
+              MenuItemTCG(
                 onClick: () => {},
                 title: 'Register PokeDek',
                 height: 100,

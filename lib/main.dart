@@ -61,7 +61,7 @@ class StoryBookPokemon extends StatelessWidget {
         ),
         Story(
           name: 'Menu Item',
-          builder: (context) => MenuItem(
+          builder: (context) => MenuItemTCG(
             onClick: () => {},
             title: context.knobs.text(
               label: 'text',

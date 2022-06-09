@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_tcg_deck/widgets/shared/box_decoration.dart';
 
-class MenuItem extends StatelessWidget {
+class MenuItemTCG extends StatelessWidget {
   final String title;
   final double height;
   final Function onClick;
 
-  const MenuItem({
+  const MenuItemTCG({
     Key? key,
     required this.onClick,
     required this.title,
